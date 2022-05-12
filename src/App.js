@@ -38,7 +38,8 @@ function App() {
       }
     }
     consultarAPI();
-  },[consultar]);
+  
+  },[consultar, ciudad, pais]);
 
   let componente;
   if(error) {
