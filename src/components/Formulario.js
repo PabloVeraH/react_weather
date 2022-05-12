@@ -2,12 +2,6 @@ import React, { useState } from 'react';
 
 const Formulario = ({busqueda, guardarBusqueda, guardarConsultar}) => {
 
-    // state del formulario
-    const [busqueda, guardarBusqueda] = useState({ 
-        ciudad: '',
-        pais: ''
-    });
-
     const [error, guardarError] = useState(false);
 
     // extraer ciudad y pais
