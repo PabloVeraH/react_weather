@@ -3,25 +3,27 @@ import React from 'react';
 
 const Clima = ({resultado}) => {
     // extraer los valores
-    const { name, main } = resultado;
+    const { name, main, weather } = resultado;
 
     if(!name) return null;
 
-    // Grados kelvin
-    const kelvin = 273.15;
-
+    const url = `https://openweathermap.org/img/wn/${weather[0].icon}@2x.png`;
     return ( 
         <div className="card-panel white col s12">
             <div className="black-text">
-                <h2>El clima de {name} es: </h2>
+                <h2>The weather of {name} is: </h2>
+                <p> <img src={url}></img> </p> 
                 <p className="temperatura">
-                    { parseFloat( main.temp - kelvin, 10 ).toFixed(2) }  <span> &#x2103; </span>
+                    { main.temp }  <span> &#x2103; </span> 
                 </p>
-                <p>Temperatura Máxima:
-                    { parseFloat( main.temp_max - kelvin, 10 ).toFixed(2) }  <span> &#x2103; </span>
+                <p>Maximum temperature: 
+                    { main.temp_max }  <span> &#x2103; </span>
                 </p>
-                <p>Temperatura Minima:
-                    { parseFloat( main.temp_min - kelvin, 10 ).toFixed(2) }  <span> &#x2103; </span>
+                <p>Minimum temperature: 
+                    { main.temp_min }  <span> &#x2103; </span>
+                </p>
+                <p>Thermal sensation: 
+                    { main.feels_like }  <span> &#x2103; </span>
                 </p>
             </div>
         </div>
